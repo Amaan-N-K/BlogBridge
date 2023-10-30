@@ -1,0 +1,69 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f8fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 40px 60px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #007BFF; /* This adds the blue border to the container */
+}
+
+.btn {
+    background-color: #007BFF; /* Blue background color for buttons */
+    color: #ffffff;            /* White text color for buttons */
+    padding: 10px 20px;        /* Padding for buttons */
+    border: none;              /* Removes default borders */
+    border-radius: 5px;        /* Rounded corners for buttons */
+    cursor: pointer;           /* Hand cursor for buttons */
+    margin: 5px;               /* Space between buttons */
+    font-size: 1em;            /* Text size */
+    transition: background-color 0.3s; /* Smooth background color change on hover */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker blue background color when hovering over buttons */
+}
+
+.input-group {
+    margin: 20px 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #007BFF;
+}
+
+p {
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+a:hover {
+    text-decoration: underline;
+}
