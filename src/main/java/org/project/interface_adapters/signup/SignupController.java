@@ -1,7 +1,7 @@
 package org.project.interface_adapters;
 
-import org.project.use_case.SignupInputData;
-import org.project.use_case.SignupInputBoundary;
+import org.project.use_case.signup.SignupInputData;
+import org.project.use_case.signup.SignupInputBoundary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;

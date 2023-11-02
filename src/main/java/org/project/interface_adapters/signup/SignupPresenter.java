@@ -1,7 +1,7 @@
 package org.project.interface_adapters;
 
-import org.project.use_case.SignupOutputData;
-import org.project.use_case.SignupOutputBoundary;
+import org.project.use_case.signup.SignupOutputData;
+import org.project.use_case.signup.SignupOutputBoundary;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.Map;

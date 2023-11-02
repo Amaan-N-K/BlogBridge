@@ -8,11 +8,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import org.project.use_case.SignupDataAccessInterface;
+
+import org.project.use_case.login.LoginDataAccessInterface;
+import org.project.use_case.signup.SignupDataAccessInterface;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class SignupDataAccessObject implements SignupDataAccessInterface {
+public class SignupDataAccessObject implements SignupDataAccessInterface, LoginDataAccessInterface {
     private static final String CSV_FILE_PATH = "users.csv";
 
     public SignupDataAccessObject() {
@@ -43,6 +45,27 @@ public class SignupDataAccessObject implements SignupDataAccessInterface {
             String line;
             while ((line = reader.readLine()) != null) {
                 if (line.split(",")[0].equals(username)) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean doesUsernameExist(String username) {
+        return usernameExists(username);
+    }
+
+    @Override
+    public boolean isPasswordCorrect(String username, String password) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(CSV_FILE_PATH))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 2 && parts[0].equals(username) && parts[1].equals(password)) {
                     return true;
                 }
             }
