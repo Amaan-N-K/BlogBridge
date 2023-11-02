@@ -1,10 +1,9 @@
-package org.project.interface_adapters;
+package org.project.interface_adapters.dashboard;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
-import org.project.use_case.DashboardBoundary;
-import java.util.Map;
+import org.project.use_case.dashboard.DashboardBoundary;
 
 
 @RestController
@@ -25,6 +24,8 @@ public class DashboardController {
         try {
             System.out.println("Fetching data for user: " + username);
             dashboardBoundary.fetchDataForUser(username);
+
+            System.out.println(dashboardPresenter.getResponseEntity());
             return dashboardPresenter.getResponseEntity();  // Returning the ResponseEntity from the presenter
         } catch (Exception e) {
             System.out.println("Error fetching dashboard data: " + e.getMessage());

@@ -1,4 +1,4 @@
-package org.project.interface_adapters;
+package org.project.interface_adapters.signup;
 
 import org.project.use_case.signup.SignupInputData;
 import org.project.use_case.signup.SignupInputBoundary;

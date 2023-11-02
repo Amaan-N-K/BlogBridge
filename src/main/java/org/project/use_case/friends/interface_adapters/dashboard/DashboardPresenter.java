@@ -1,7 +1,7 @@
-package org.project.interface_adapters;
+package org.project.interface_adapters.dashboard;
 
-import org.project.use_case.DashboardOutputBoundary;
-import org.project.use_case.DashboardOutputData;
+import org.project.use_case.dashboard.DashboardOutputBoundary;
+import org.project.use_case.dashboard.DashboardOutputData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
@@ -22,6 +22,7 @@ public class DashboardPresenter implements DashboardOutputBoundary {
         responseData.put("friendCount", data.getFriendCount());
         responseData.put("friends", data.getFriends());
         responseData.put("posts", data.getPosts());
+        responseData.put("friendRequests", data.getFriendRequests());
         System.out.println("here");
         responseEntity = ResponseEntity.ok(responseData);
     }
