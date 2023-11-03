@@ -1,9 +1,9 @@
-package org.project.interface_adapters;
+package org.project.interface_adapters.friends;
 
-import org.project.use_case.AcceptInteractor;
-import org.project.use_case.AcceptInputData;
-import org.project.use_case.AddInputBoundary;
-import org.project.use_case.AddInputData;
+import org.project.use_case.friends.AcceptInteractor;
+import org.project.use_case.friends.AcceptInputData;
+import org.project.use_case.friends.AddInputBoundary;
+import org.project.use_case.friends.AddInputData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,4 +1,4 @@
-package org.project.use_case;
+package org.project.use_case.signup;
 
 public interface SignupDataAccessInterface {
     boolean usernameExists(String username);

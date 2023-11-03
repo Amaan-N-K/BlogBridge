@@ -1,7 +1,7 @@
-package org.project.interface_adapters;
+package org.project.interface_adapters.friends;
 
-import org.project.use_case.AddOutputBoundary;
-import org.project.use_case.AddOutputData;
+import org.project.use_case.friends.AddOutputBoundary;
+import org.project.use_case.friends.AddOutputData;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 

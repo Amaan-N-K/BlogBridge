@@ -1,4 +1,4 @@
-package org.project.use_case;
+package org.project.use_case.dashboard;
 
 public class DashboardInputData {
 

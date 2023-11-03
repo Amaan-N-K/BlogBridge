@@ -1,4 +1,4 @@
-package org.project.use_case;
+package org.project.use_case.signup;
 
 import org.springframework.stereotype.Service;
 
@@ -20,7 +20,6 @@ public class SignupInteractor implements SignupInputBoundary {
 
         // Create the output data with the results
         SignupOutputData outputData = new SignupOutputData(userExists, passwordsMismatch);
-        System.out.println("invoking present");
         outputBoundary.present(outputData);  // Moved outside the if condition
 
         if (!userExists && !passwordsMismatch) {

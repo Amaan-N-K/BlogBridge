@@ -1,4 +1,4 @@
-package org.project.use_case;
+package org.project.use_case.friends;
 
 import org.springframework.stereotype.Service;
 

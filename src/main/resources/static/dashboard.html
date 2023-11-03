@@ -1,31 +1,199 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaTweet - Dashboard</title>
-    <link rel="stylesheet" href="signup.css">
-</head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 50%;
+            height: 100vh;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            background-color: #E0EFFF; /* Light blue for sidebar */
+            padding: 1rem 2rem;
+            width: 20%; /* You can adjust this as needed */
+            border-right: 1px solid #ddd;
+            height: 100%;
+            overflow: auto;
+            position: relative; /* Add this line */
+        }
+
+
+        .add-friends input {
+            width: 90%; /* Adjust this value as needed */
+            box-sizing: border-box; /* To ensure padding and border are included in width */
+        }
+
+
+        .main-content {
+            flex: 1;
+            padding: 1rem;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .header-info {
+            background-color: #E0EFFF; /* Light blue for header info */
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .feed {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .invitations, .friends {
+            margin-top: 1rem;
+        }
+
+        .btn {
+            display: block;
+            margin-top: 1rem;
+        }
+
+        .post {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background-color: #f6f6f6;
+            border-radius: 5px;
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-body {
+            max-height: 100px;  /* Adjust as per your requirements */
+            overflow-y: auto;
+        }
+
+        /* Styling for the scroll bar */
+        .post-body::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .post-body::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .post-body::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        .post-body::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+    </style>
 <body>
 
-<div class="container">
-    <h1>Welcome to JavaTweet Dashboard</h1>
-
-    <div class="feed">
-        <p>No tweets yet. Start sharing!</p>
-    </div>
-
-    <button class="btn" onclick="goToCreatePostPage()">Create New Post</button>
-
-    <p><a href="login.html">Go back to login</a></p>
+<div id="loading" style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+    Loading...
 </div>
 
-<script>
-    function goToCreatePostPage() {
-        // Logic to navigate to the create post page (if available)
-        console.log("Navigating to create post page...");
-    }
-</script>
+<div class="container" id="container" style="display: none;">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Profile Info</h2>
+
+        <div class="invitations">
+            <h3>Friend Requests</h3>
+            <!-- Invitation content here -->
+        </div>
+
+        <div class="add-friends">
+            <h3>Add Friends</h3>
+            <input type="text" placeholder="Enter Username">
+            <button>Add</button>
+        </div>
+
+        <div class="friends">
+            <h3>Friends</h3>
+            <!-- Friends list content here -->
+        </div>
+
+        <div style="position: absolute; bottom: 10px; left: 10px;">
+            <a href="login.html">Sign-out</a>
+        </div>
+
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content">
+        <!-- Header Info -->
+        <div class="header-info">
+            <span id="usernameDisplay">Username</span>
+            <span>Friends: 0</span>
+        </div>
+
+        <button class="btn" onclick="goToCreatePostPage()">Create New Post</button>
+
+        <div class="feed">
+            <h2>Posts</h2>
+            <div id="postsContainer">
+                <div class="post">
+                    <div class="post-header">
+                        <span>Example Title</span>
+                        <span>by: ExampleUser</span>
+                    </div>
+                    <div class="post-body">
+                        Example body content.
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="createPostModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); align-items: center; justify-content: center;">
+                <div style="background-color: #fff; width: 50%; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); border-radius: 5px;">
+                    <h3>Create New Post</h3>
+                    <label for="postTitle">Title:</label>
+                    <input type="text" id="postTitle" style="width: 100%; margin-bottom: 10px;">
+
+                    <label for="postBody">Body:</label>
+                    <textarea id="postBody" style="width: 100%; height: 200px; margin-bottom: 10px;"></textarea>
+
+                    <button id="createPostButton">Create</button>
+                    <button id="cancelPostButton">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="DashboardView.js"></script>
+<script src="addFriend.js"></script>
+<script src="acceptFriend.js"></script>
+<script src="postActions.js"></script>
 
 </body>
+
 </html>

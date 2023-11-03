@@ -1,4 +1,4 @@
-package org.project.use_case;
+package org.project.use_case.friends;
 
 public class AddInputData {
     private final String username;

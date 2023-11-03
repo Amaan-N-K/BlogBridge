@@ -32,7 +32,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
                 // Handle UI update for password mismatch
             } else {
                 console.log("Data sent successfully");
-                window.location.href = "http://localhost:8080/dashboard";
+                window.location.href = "/login.html";
             }
         })
         .catch(err => {

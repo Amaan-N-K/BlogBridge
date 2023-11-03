@@ -1,8 +1,8 @@
-package org.project.interface_adapters;
+package org.project.interface_adapters.friends;
 
 import org.springframework.http.ResponseEntity;
-import org.project.use_case.AcceptOutputBoundary;
-import org.project.use_case.AcceptOutputData;
+import org.project.use_case.friends.AcceptOutputBoundary;
+import org.project.use_case.friends.AcceptOutputData;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;

@@ -1,4 +1,4 @@
-package org.project.use_case;
+package org.project.use_case.friends;
 
 public class AcceptInputData {
     private String username; // The currently logged-in user
