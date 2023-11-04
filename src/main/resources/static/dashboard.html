@@ -36,7 +36,7 @@
 
 
         .add-friends input {
-            width: 90%; /* Adjust this value as needed */
+            width: 100%; /* Adjust this value as needed */
             box-sizing: border-box; /* To ensure padding and border are included in width */
         }
 
@@ -112,6 +112,10 @@
             background: #555;
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
     </style>
 <body>
 
@@ -131,7 +135,7 @@
 
         <div class="add-friends">
             <h3>Add Friends</h3>
-            <input type="text" placeholder="Enter Username">
+            <input type="text" placeholder="Username">
             <button>Add</button>
         </div>
 
@@ -140,7 +144,7 @@
             <!-- Friends list content here -->
         </div>
 
-        <div style="position: absolute; bottom: 10px; left: 10px;">
+        <div style="position: absolute; bottom: 20px; left: 10px;">
             <a href="login.html">Sign-out</a>
         </div>
 

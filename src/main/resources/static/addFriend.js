@@ -26,7 +26,7 @@ function addFriend(friendUsername) {
         .then(data => {
             console.log(data);
             if (data.success) {
-                alert("Friend added successfully!");
+                alert("Friend request sent successfully!");
             } else {
                 alert("Either no user, user already a Friend, already sent request to user");
             }
